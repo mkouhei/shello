@@ -1,6 +1,7 @@
 language: bash
 install:
   - sudo apt-get update
+  - rm -f /home/travis/shello-0.1/.travis.yml
   - sudo apt-get install -y cowbuilder git-buildpackage
   - echo -e 'MIRRORSITE=http://cdn.debian.net/debian/\nDISTRIBUTION=sid\nBUILDRESULT=/home/travis/results\n' > /home/travis/.pbuilderrc
   - cp -i /etc/git-buildpackage/gbp.conf /home/travis/.gbp.conf
