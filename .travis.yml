@@ -1,0 +1,11 @@
+language: bash
+install:
+  - sudo apt-get update
+  - sudo apt-get install -y cowbuilder git-buildpackage
+  - echo -e 'MIRRORSITE=http://cdn.debian.net/debian/\nDISTRIBUTION=sid\nBASEPATH=/home/travis/base.cow\nBUILDRESULT=/home/travis/results\n' > /home/travis/.pbuilderrc
+  - echo -e "git-pbuilder-options = '--debbuildopts \"-sa\"'" > /home/travis/.gbp.conf
+  - install -d /home/travis/results
+  - sudo apt-get install debian-archive-keyring/precise-backports
+  - gpg --list-keys --keyring /usr/share/keyrings/debian-archive-keyring.gpg
+  - sudo cowbuilder --create --distribution sid --debootstrapopts --keyring=/usr/share/keyrings/debian-archive-keyring.gpg
+  - sudo git-buildpackage --git-ignore-branch --git-pbuilder --git-export-dir=resulsts --git-ignore-new --git-dist=sid
