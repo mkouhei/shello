@@ -1,4 +1,4 @@
-language: bash
+language: python
 install:
   - sudo apt-get update
   - sudo apt-get install -y cowbuilder git-buildpackage
@@ -8,4 +8,5 @@ install:
   - install -d /home/travis/results
   - sudo apt-get install debian-archive-keyring/precise-backports
   - sudo cowbuilder --create --distribution sid --debootstrapopts --keyring=/usr/share/keyrings/debian-archive-keyring.gpg
+script:
   - sudo git-buildpackage --git-ignore-branch --git-pbuilder --git-export-dir=resulsts --git-ignore-new --git-dist=sid
