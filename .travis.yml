@@ -2,7 +2,7 @@ language: bash
 install:
   - sudo apt-get update
   - sudo apt-get install -y cowbuilder git-buildpackage
-  - echo -e 'MIRRORSITE=http://cdn.debian.net/debian/\nDISTRIBUTION=sid\nBASEPATH=/home/travis/base.cow\nBUILDRESULT=/home/travis/results\n' > /home/travis/.pbuilderrc
+  - echo -e 'MIRRORSITE=http://cdn.debian.net/debian/\nDISTRIBUTION=sid\nBUILDRESULT=/home/travis/results\n' > /home/travis/.pbuilderrc
   - cp -i /etc/git-buildpackage/gbp.conf /home/travis/.gbp.conf
   - sed -i "s/^#\(git-pbuilder-options = '\)\(.*\)'/\1--debbuildopts \"-sa\"'/g" /home/travis/.gbp.conf
   - install -d /home/travis/results
