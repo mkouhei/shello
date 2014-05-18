@@ -1,0 +1,6 @@
+shello for Debian
+-----------------
+
+This package is only for testing git-buildpackage on Travis-CI.
+
+ -- Kouhei Maeda <mkouhei@palmtb.net>  Sun, 18 May 2014 22:11:41 +0900

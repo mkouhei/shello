@@ -1,0 +1,16 @@
+Source: shello
+Section: misc
+Priority: optional
+Maintainer: Kouhei Maeda <mkouhei@palmtb.net>
+Build-Depends: debhelper (>= 9.0.0)
+Standards-Version: 3.9.5
+Homepage: https://github.com/mkouhei/shello
+
+Package: shello
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: hello world for shell script
+ echo "hello" only shell script.
+ This software sample script for testing with git-buildpackage on Travis-CI.
+ So this package own is no means.
+

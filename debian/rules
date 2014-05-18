@@ -1,0 +1,14 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+%:
+	dh $@ 
+
+override_dh_install:
+	dh_install hello.sh usr/bin
+	mv $(CURDIR)/debian/shello/usr/bin/hello.sh $(CURDIR)/debian/shello/usr/bin/shello
+	chmod +x $(CURDIR)/debian/shello/usr/bin/shello
+
