@@ -3,8 +3,8 @@ install:
   - sudo apt-get update
   - sudo apt-get install -y cowbuilder git-buildpackage
   - echo -e 'MIRRORSITE=http://cdn.debian.net/debian/\nDISTRIBUTION=sid\nBASEPATH=/home/travis/base.cow\nBUILDRESULT=/home/travis/results\n' > /home/travis/.pbuilderrc
-  - echo -e "git-pbuilder-options = '--debbuildopts \"-sa\"'" > /home/travis/.gbp.conf
-  - cat /home/travis/.gbp.conf
+  - cp -i /etc/git-buildpackage/gbp.conf /home/travis/.gbp.conf
+  - sed -i "s/^#\(git-pbuilder-options = '\)\(.*\)'/\1--debbuildopts \"-sa\"'/g" /home/travis/.gbp.conf
   - install -d /home/travis/results
   - sudo apt-get install debian-archive-keyring/precise-backports
   - sudo cowbuilder --create --distribution sid --debootstrapopts --keyring=/usr/share/keyrings/debian-archive-keyring.gpg
